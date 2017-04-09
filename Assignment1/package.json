@@ -1,0 +1,22 @@
+{
+  "name": "assignment1",
+  "version": "1.0.0",
+  "description": "no actresses were harmed in the making of this assignment. We skeptical of cynacism and so should you!",
+  "main": "helloWord.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AnthonySDi/ITC230.git"
+  },
+  "keywords": [
+    "No"
+  ],
+  "author": "Anthony Stenberg-Di Geronimo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonySDi/ITC230/issues"
+  },
+  "homepage": "https://github.com/AnthonySDi/ITC230#readme"
+}
