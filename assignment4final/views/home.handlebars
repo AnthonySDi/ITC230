@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <title>Science Fiction Books</title>
+    </head>
+    <body>
+        <h1>Find Sci-fi Books</h1>
+
+        <h3>Search, add, or delete books from the list!</h3>
+        <form class="form-horizontal" role="form" action="/get" method="POST">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <div class="form-group">
+                <label for="bookTitle" class="col-sm-2 control-label">
+                    Books
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" required id="fieldName" name="title">
+                </div>
+                <div class="col-sm-5">
+                    <label for="bookTitle" class="col-sm-2 control-label">
+                        Add Books
+                    </label>
+                    <input type="text" class="form-control" required id="fieldName" name="title" placeholder="Title">
+                    <input type="text" class="form-control" required id="fieldName" name="author" placeholder="author">
+                    <input type="text" class="form-control" required id="fieldName" name="price" placeholder="price">
+                    <button type="submit" class="btn-add">
+                        Add
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button type="submit" class="btn-search">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
