@@ -23,16 +23,20 @@
                         </button>
                     </div>
                 </div>
+            </form>
+
+
+            <form class="form-inline" role="form" action="/get" method="POST">
                 <div class="form-group">
-                        <label for="bookTitle" class="col-sm-4 control-label">
-                            Add Books
-                        </label>
-                        <input type="text" class="form-control" required id="fieldName" name="title" placeholder="Title"><br />
-                        <input type="text" class="form-control" required id="fieldName" name="author" placeholder="author"><br />
-                        <input type="text" class="form-control" required id="fieldName" name="price" placeholder="price"><br /><br />
-                        <button type="submit" class="btn-add">
-                            Add
-                        </button>
+                    <label for="bookTitle" class="col-sm-4 control-label">
+                        Add Books
+                    </label>
+                    <input type="text" class="form-control" required id="fieldName" name="title" placeholder="Title"><br />
+                    <input type="text" class="form-control" required id="fieldName" name="author" placeholder="author"><br />
+                    <input type="text" class="form-control" required id="fieldName" name="price" placeholder="price"><br /><br />
+                    <button type="submit" class="btn-add">
+                        Add
+                    </button>
                 </div>
 
             </form>
@@ -45,7 +49,7 @@
                 </tr>
                 {{/if}}
                 {{#each Books}}
-                <tr onclick="javascript:editRecord(this);">
+                <tr onclick="javascript:editbook(this);">
                     <td>{{ title }}</td>
                     <td>{{ author }}</td>
                     <td>{{ price }}</td>
@@ -63,9 +67,9 @@
                     });
                 });
 
-                function editRecord(row) {
+                function editbook(row) {
                     var title = $(row).children().first().text();
-                    location.href = "/detail/" + title;
+                    location.href = "details/" + title;
                 }
             </script>
         </div>

@@ -48,7 +48,7 @@ app.post('/process', function (req, res) {
 //    app.use(express.errorHandler());
 //}
 
-app.get('/', routes.home);
+//app.get('/', routes.home);
 app.get('/about', routes.about);
 app.get('/contact', routes.details);
 
@@ -59,9 +59,6 @@ http.createServer(app).listen(app.get('port'), function () {
 app.get('/', function (req, res) {
     res.render('home', { Books: books.getAllBooks() });
 });
-
-
-
 
 
 app.get('/about', function (req, res) {
@@ -80,7 +77,6 @@ app.get('/get', function (req, res) {
     } else {
         res.send("item not found");
     }
-
 });
 
 app.post('/get', function (req, res) {

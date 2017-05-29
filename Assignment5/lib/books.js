@@ -41,13 +41,4 @@ exports.delete = (title) => {
    
     };
 
-exports.add = (title) => {
-    const oldLength = scifibooks.length;
-    // use existing get() method to check if book already in our list
-    let found = this.get(scifibooks.title);
-    if (!found) {
-        scifibooks.push(title);
-    }
-    // if old & new array lengths differ, item was added
-    return { added: oldLength !== scifibooks.length, total: scifibooks.length };
-};
+
