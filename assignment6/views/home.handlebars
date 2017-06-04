@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <title>Science Fiction Books</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Find Sci-fi Books</h1>
+
+            <h3>Search, add, or delete books from the list!</h3>
+
+            <form class="form-inline" role="form" action="/get" method="POST">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <div class="form-group">
+                    <label for="bookTitle" class="col-sm-4 control-label">
+                        Find Books
+                    </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" required id="fieldName" name="title">
+                        <button type="submit" class="btn-add">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+            <form class="form-inline" role="form" action="/get" method="POST">
+                <div class="form-group">
+                    <label for="bookTitle" class="col-sm-4 control-label">
+                        Add Books
+                    </label>
+                    <input type="text" class="form-control" required id="fieldName" name="title" placeholder="Title"><br />
+                    <input type="text" class="form-control" required id="fieldName" name="author" placeholder="author"><br />
+                    <input type="text" class="form-control" required id="fieldName" name="price" placeholder="price"><br /><br />
+                    <button type="submit" class="btn-add">
+                        Add
+                    </button>
+                </div>
+
+            </form>
+            <table class="table table-hover">
+                {{#if Books}}
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+                {{/if}}
+                {{#each Books}}
+                <tr onclick="javascript:editbook(this);">
+                    <td>{{ title }}</td>
+                    <td>{{ author }}</td>
+                    <td>{{ price }}</td>
+                </tr>
+                {{/each}}
+            </table>
+            <script>
+                $(document).ready(function(){
+                    var buttons = $('button');
+
+                    buttons.on('click', function() {
+                        var $this = $(this);
+                        var action = $this.text();
+                        $("form").attr("action", "/" + action);
+                    });
+                });
+
+                function editbook(row) {
+                    var title = $(row).children().first().text();
+                    location.href = "details/" + title;
+                }
+            </script>
+        </div>
+    </body>
+</html>
