@@ -1,0 +1,16 @@
+{
+  "name": "assignment3",
+  "version": "1.0.0",
+  "description": "Assignment3",
+  "main": "app.js",
+  "author": {
+    "name": "Anthony"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "3.4.4",
+    "handlebar": "*",
+    "handlebars3": "^3.0.3",
+    "stylus": "*"
+  }
+}
