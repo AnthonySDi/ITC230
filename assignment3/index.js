@@ -11,7 +11,7 @@ var app = express();
 var books = require('./lib/books.js');
 
 // set up handlebars view engine
-var handlebars = require('express3-handlebars')
+var handlebars = require('express-handlebars')
     .create({ defaultLayout: 'main' });
 
 
