@@ -26,7 +26,7 @@
             </form>
 
 
-            <form class="form-inline" role="form" action="/get" method="POST">
+            <form class="form-inline" role="form" action="/add" method="POST">
                 <div class="form-group">
                     <label for="bookTitle" class="col-sm-4 control-label">
                         Add Books
@@ -56,22 +56,22 @@
                 </tr>
                 {{/each}}
             </table>
-            <script>
+            <!--<script>
                 $(document).ready(function(){
                     var buttons = $('button');
 
-                    buttons.on('click', function() {
-                        var $this = $(this);
-                        var action = $this.text();
-                        $("form").attr("action", "/" + action);
-                    });
+                    //buttons.on('click', function() {
+                    //    var $this = $(this);
+                    //    var action = $this.text();
+                    //    $("form").attr("action", "/" + action);
+                    //});
                 });
 
                 function editbook(row) {
                     var title = $(row).children().first().text();
                     location.href = "details/" + title;
                 }
-            </script>
+            </script>-->
         </div>
     </body>
 </html>

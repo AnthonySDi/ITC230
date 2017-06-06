@@ -18,3 +18,7 @@ exports.details = function (req, res) {
 exports.delete = function (req, res) {
     res.render('Delete', { title: req.body.title, year: new Date().getFullYear(), message: 'Your Delete page' });
 };
+
+exports.add = function (req, res) {
+    res.render('Add', { result });
+};

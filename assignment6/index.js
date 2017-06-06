@@ -13,7 +13,7 @@ var books = require('./models/BooksModel.js');
 
 
 // set up handlebars view engine
-var handlebars = require('express3-handlebars')
+var handlebars = require('express-handlebars')
     .create({ defaultLayout: 'main' });
 
 
@@ -63,9 +63,9 @@ app.get('/', function (req, res) {
 
 
 //get object
-app.get('/get', function (req, res, next) {
+app.get('/get', function (req, res, next) { 
 
-    books.findOne({ title: req.query.title }, (err, book) => {
+    books.findOne({ title: req.query.title, item: item }, (err, book) => {
         if (err) return next(err);
         res.type('text/html');
         res.render('details', { title: req.body.title, item: item });
@@ -75,19 +75,22 @@ app.get('/get', function (req, res, next) {
 
 app.post('/get', function (req,res, next) {
 // to find a single damned book. 
+
     books.findOne({ title: req.body.title }, (err, book) => {
         if (err) return next(err);
         res.type('text/html');  
-        res.render('details', { title: req.body.title, item: item });
+        res.render('details', { title: req.body.title, book });
     });
+    //console.log(req.body);
 });
 
 //delete object
 app.get('/delete', function (req, res) {
     books.remove({ title: req.query.title }, (err, result) => {
+        console.log(req.query.title);
         if (err) return next(err);
         let deleted = result.result.n !== 0; // n will be 0 if no docs deleted
-        Book.count((err, total) => {
+        books.count((err, total) => {
             res.type('text/html');
             res.render('delete', { title: req.query.title, deleted: result.result.n !== 0, total: total });
         });
@@ -99,6 +102,21 @@ app.get('/delete', function (req, res) {
     //res.render('delete', { title: req.query.title, result: result });
 });
 
+app.post('/add', function (req, res) {
+    books.insert({ "title": req.body.title, "author": req.body.author, "price" : req.body.price }, (err, result) => {
+        if (err) return next(err);
+        let added = result.result.n !== 0; // n will be 0 if no docs deleted
+        Book.count((err, total) => {
+            res.type('text/html');
+            res.render('Add', { result, total: total });
+        });
+    }); 
+
+    //var result = books.delete(req.query.title)
+    //console.log(result)
+
+    //res.render('delete', { title: req.query.title, result: result });
+});
 
 // 404 handler
 app.use(function (req, res, next) {
