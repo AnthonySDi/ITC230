@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>{{title}} Deets</title>
+</head>
+    <body>
+        <h2>Details for {{title}}</h2>
+        {{#if book}}
+        <ul>
+            <li>Title: {{ book.title }}
+            <li>Author: {{ book.author }}
+            <li>Price: {{ book.price }}
+        </ul>
+        <!--<input type="button" onclick="location.href='/delete';" value="Delete" />-->
+        <a href="/delete?title={{book.title}}">Delete</a>
+        {{else}}
+        not found
+        {{/if}}
+    </body>
+</html> 
