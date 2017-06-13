@@ -1,0 +1,11 @@
+﻿{{#if book}}
+<h3>Record details:</h3>
+<li>Title: {{item.title}}</li>
+<li>Year: {{item.author}}</li>
+<li>Label: {{item.price}}</li>
+<p>
+    <a href="/delete?name={{item.title}}">Delete</a>
+</p>
+{{else}}
+<h2>{{title}} not found</h2>
+{{/if}}

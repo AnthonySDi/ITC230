@@ -1,31 +1,23 @@
 {
-  "name": "assignment3.1",
-  "version": "0.0.0",
-  "description": "assignment3.1",
-  "main": "app.js",
-  "author": {
-    "name": "antho"
+  "name": "assignment8",
+  "version": "1.0.1",
+  "description": "a hellish attempt to rebuild something  during finals week. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "you got problems press control C to exit"
   },
-  "dependencies": {
+    "dependencies": {
     "body-parser": "^1.17.2",
-    "chai": "^3.5.0",
-    "eslint": "^3.19.0",
     "express": "3.4.4",
     "express-handlebars": "^3.0.0",
-    "express3-handlebars": "^0.5.2",
     "handlebars": "*",
-    "mocha": "^3.4.1",
     "mongoose": "^4.10.4",
     "stylus": "*"
   },
-  "scripts": {
-    "lint": "eslint hw4.js",
-    "tests": "mocha tests\tests.js"
+  "repository": {
+    "type": "git",
+    "url": "git"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.19.0",
-    "eslint-config-google": "^0.7.1",
-    "mocha": "^3.4.1"
-  }
+  "author": "anthony",
+  "license": "MIT"
 }
