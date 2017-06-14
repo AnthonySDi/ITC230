@@ -11,7 +11,7 @@ var app = express();
 var books = require('./lib/books.js');
 
 // set up handlebars view engine
-var handlebars = require('express3-handlebars')
+var handlebars = require('express-handlebars')
     .create({ defaultLayout: 'main' });
 
 
@@ -70,18 +70,26 @@ app.get('/about', function (req, res) {
 });
 
 //get object
-app.get('/get', function (req, res) {
-    var item = books.get(req.query.title)
-    if (item) {
-        res.send("Looking for a book called " + req.query.title + "\n" + JSON.stringify(item));
-    } else {
-        res.send("item not found");
+//app.get('/get', function (req, res) {
+//    var item = books.get(req.query.title)
+//    if (item) {
+//        res.send("Looking for a book called " + req.query.title + "\n" + JSON.stringify(item));
+//    } else {
+//        res.send("item not found");
+//    }
+//});
+app.get('/get/:title', function (req, res) {
+    res.type('text/html');
+    var found = books.get(req.params.title);
+    if (!found) {
+        found = { title: req.params.title };
     }
+    res.render('Details', { title: req.params.title, item: found })    
 });
 
 app.post('/get', function (req, res) {
     var item = books.get(req.body.title)
-    res.render('details', { title: req.body.title, item: item });
+    res.render('Details', { title: req.body.title, item: item });
 
 });
 
@@ -93,6 +101,12 @@ app.get('/delete', function (req, res) {
     res.render('delete', { title: req.query.title, result: result });
 });
 
+app.post('/add', function (req, res) {
+    res.type('text/html');
+    let totalBook = { title: req.body.title, author: req.body.author, price: req.body.price };
+    let item = books.add(totalBook);
+    res.render('Details', { title: req.body.title, item: totalBook });
+});
 
 // 404 handler
 app.use(function (req, res, next) {

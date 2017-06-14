@@ -39,6 +39,20 @@ exports.delete = (title) => {
  //   var deleted = (scifibooks.length == oldLength) ? "" : 'deleted';
     return { "deleted": scifibooks.length !== oldLength, "total": scifibooks.length };
    
-    };
+};
 
+exports.add = (newBook) => {
+    var found = false;
+    scifibooks.forEach(function (item, index) {
+        if (item.title == newBook.title) {
+            found = true;
+        }
+    });
+    if (!found) {
+        newBook.id = scifibooks.length;
+        scifibooks.push(newBook);
+    }
+    var action = (found) ? "updated" : "added";
+    return { "BookAction": action, "Total": scifibooks.length };
+};
 

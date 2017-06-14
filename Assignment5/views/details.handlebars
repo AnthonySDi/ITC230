@@ -1,20 +1,13 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <title>{{title}} Deets</title>
-</head>
-    <body>
-        <h2>Details for {{title}}</h2>
+﻿
+        <h2>{{title}}</h2>
         {{#if item}}
         <ul>
             <li>Title: {{ item.title }}
             <li>Author: {{ item.author }}
             <li>Price: {{ item.price }}
         </ul>
-        <input type="button" onclick="location.href='delete?title={{title}}';" value="Delete" />
-
+        <!--<input type="button" onclick="location.href='/delete';" value="Delete" />-->
+        <a href="/delete?title={{title}}">Delete</a>
         {{else}}
-        not found
+        <p>Sorry, {{title}} was not found.
         {{/if}}
-    </body>
-</html> 
