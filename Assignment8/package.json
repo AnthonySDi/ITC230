@@ -6,8 +6,9 @@
   "scripts": {
     "test": "you got problems press control C to exit"
   },
-    "dependencies": {
+  "dependencies": {
     "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
     "express": "3.4.4",
     "express-handlebars": "^3.0.0",
     "handlebars": "*",

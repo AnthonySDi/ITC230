@@ -49,7 +49,7 @@ app.get('/api/books', (req, res) => {
 
 app.post('/api/add/', (req,res, next) => {
     if (!req.body._id) {
-        let book = new book({title: req.body.title, author:req.body.author, price: req.body.price});
+        let book = new books({title: req.body.title, author:req.body.author, price: req.body.price});
         book.save((err,newBook) => {
             if (err) return next(err);
             console.log(newBook)
@@ -70,6 +70,14 @@ app.get('/api/add/:title/:author/:price', (req, res, next) => {
         res.json({ updated: result.nModified })
     });
 });
+
+app.get('/api/delete/:_id', (req, res, next) => {
+    books.remove({ "_id": req.params._id }, (err, result) => {
+        if (err) return next(err);
+        // return # of items deleted
+        res.json({ "deleted": result.result.n !== 0 });
+    });
+}); // title: req.query.title, deleted: result.result.n !== 0, total: tot
 
 app.use((req, res) => {
     res.type('text/plain');
